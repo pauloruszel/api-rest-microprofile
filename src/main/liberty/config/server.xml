@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="Sample Liberty server">
+    <featureManager>
+        <feature>cdi-4.0</feature> <!-- Contexts and Dependency Injection -->
+        <feature>jsonp-2.1</feature>
+        <feature>jsonb-3.0</feature>
+        <feature>mpOpenAPI-3.1</feature>
+        <feature>mpMetrics-5.1</feature>
+        <feature>mpRestClient-3.0</feature>
+        <feature>restfulWS-3.1</feature>
+        <feature>restfulWSClient-3.1</feature>
+        <feature>servlet-6.0</feature>
+    </featureManager>
+
+    <variable name="http.port" defaultValue="9080"/>
+    <variable name="https.port" defaultValue="9443"/>
+
+    <webApplication contextRoot="/" location="api-rest-microprofile.war"/>
+
+    <mpMetrics authentication="false"/>
+
+    <applicationManager autoExpand="true"/>
+
+    <httpEndpoint httpPort="${http.port}"
+                  httpsPort="${https.port}" id="defaultHttpEndpoint"/>
+
+    <variable name="io_openliberty_guides_system_inMaintenance" value="false"/>
+</server>
